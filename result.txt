@@ -1,0 +1,2 @@
+ToyData.Toy{id='123', name='Car', frequency=5}
+ToyData.Toy{id='456', name='Doll', frequency=3}
