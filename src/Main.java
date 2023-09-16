@@ -5,6 +5,8 @@ import Exceptions.WrongInputStringToy;
 import Interfaces.GeneratorPrizeToyListInterface;
 import ToyData.Toy;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -31,7 +33,7 @@ public class Main {
         } catch (NumberFormatException | ListOfPrizeToysIsEmpty e) {
             System.out.println(e.getMessage());
         } catch (ErrorWriteFileException e) {
-            throw new RuntimeException(e);
+            System.out.printf("%s, Абсолютный путь: %s\n%n", e.getMessage() + Arrays.toString(e.getStackTrace()), e.getFileName());
         }
 
     }
