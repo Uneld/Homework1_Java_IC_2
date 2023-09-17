@@ -10,6 +10,10 @@ import ToyData.Toy;
 
 import java.util.*;
 
+/**
+ * Класс ToyShop представляет собой магазин игрушек, который может принимать новые типы игрушек
+ * и генерировать призовые игрушки.
+ */
 public class ToyShop implements ToyShopInterface {
     static final int MAX_TYPES_OF_TOYS = 10;
     static final int NUMBER_OF_PRIZE_TOYS = 10;
@@ -27,6 +31,11 @@ public class ToyShop implements ToyShopInterface {
 
     private final String[] names;
 
+    /**
+     * Конструктор класса ToyShop.
+     *
+     * @param generator - генератор призовых игрушек
+     */
     public ToyShop(GeneratorPrizeToyListInterface generator) {
         this.toyTypesQueue = new PriorityQueue<>();
         this.weights = new int[MAX_TYPES_OF_TOYS];
@@ -36,6 +45,13 @@ public class ToyShop implements ToyShopInterface {
         this.generator = generator;
     }
 
+    /**
+     * Метод put() добавляет новый тип игрушки в магазин.
+     *
+     * @param input - строка с параметрами нового типа игрушки
+     * @throws WrongInputStringToy  - выбрасывается, если введенная строка содержит неверные параметры
+     * @throws ToyTypePresentInShop - выбрасывается, если тип игрушки уже присутствует в магазине
+     */
     @Override
     public void put(String input) throws WrongInputStringToy, ToyTypePresentInShop {
         Toy newToyType = parseInputString(input);
@@ -55,6 +71,13 @@ public class ToyShop implements ToyShopInterface {
         listOfPrizeToys = generator.generatePrizeToyList(toyTypesQueue, NUMBER_OF_PRIZE_TOYS);
     }
 
+    /**
+     * Метод возвращает следующую призовую игрушку из списка.
+     * Если список призовых игрушек пуст, то выбрасывается исключение {@link ListOfPrizeToysIsEmpty}.
+     *
+     * @return следующая призовая игрушка из списка
+     * @throws ListOfPrizeToysIsEmpty если список призовых игрушек пуст
+     */
     @Override
     public Toy get() throws ListOfPrizeToysIsEmpty {
         if (listOfPrizeToys.isEmpty()) {
@@ -63,7 +86,14 @@ public class ToyShop implements ToyShopInterface {
         return listOfPrizeToys.pollFirst();
     }
 
-
+    /**
+     * Метод обновляет вес указанного типа игрушки в магазине.
+     * Если указанный тип игрушки не найден в магазине, то выбрасывается исключение {@link ToyTypeNoPresentInShop}.
+     *
+     * @param id     идентификатор типа игрушки, который нужно обновить
+     * @param weight новый вес типа игрушки
+     * @throws ToyTypeNoPresentInShop если указанный тип игрушки не найден в магазине
+     */
     @Override
     public void updateToyTypeWeight(int id, int weight) throws ToyTypeNoPresentInShop {
         for (Toy toy : toyTypesQueue) {
@@ -75,6 +105,11 @@ public class ToyShop implements ToyShopInterface {
         throw new ToyTypeNoPresentInShop("Такого типа игрушки не существует");
     }
 
+    /**
+     * Метод возвращает строковое представление списка призовых игрушек в магазине.
+     *
+     * @return строковое представление списка призовых игрушек в магазине
+     */
     @Override
     public String getStringPrizeToys() {
         StringBuilder builder = new StringBuilder();
@@ -86,6 +121,13 @@ public class ToyShop implements ToyShopInterface {
         return builder.toString();
     }
 
+    /**
+     * Метод для парсинга строки с данными о новом типе игрушки.
+     *
+     * @param input строка с данными о новом типе игрушки
+     * @return объект {@link Toy}, содержащий данные о новом типе игрушки
+     * @throws WrongInputStringToy если строка содержит неверные параметры игрушки
+     */
     private Toy parseInputString(String input) throws WrongInputStringToy {
         int id, weight;
         String[] toyFieldArray = input.strip().split(" ");
@@ -97,11 +139,11 @@ public class ToyShop implements ToyShopInterface {
         try {
             id = Integer.parseInt(toyFieldArray[0]);
             weight = Integer.parseInt(toyFieldArray[1]);
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new WrongInputStringToy("Не верно введены параметры игрушки.", input);
         }
 
-        if(weight > ToyRaffle.MAX_PERCENT_CHANCE || weight < 0 || id < 0){
+        if (weight > ToyRaffle.MAX_PERCENT_CHANCE || weight < 0 || id < 0) {
             throw new WrongInputStringToy("Не верно введены параметры игрушки.", input);
         }
 

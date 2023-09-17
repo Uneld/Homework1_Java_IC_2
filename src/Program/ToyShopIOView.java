@@ -6,7 +6,7 @@ import Interfaces.ToyShopIOViewInterface;
 import java.util.Scanner;
 
 /**
- * Класс для работы с вводом/выводом для Program.ToyShop.
+ * Класс для работы с вводом/выводом для {@link ToyShop}.
  */
 public class ToyShopIOView implements ToyShopIOViewInterface {
     private final Scanner scanner;

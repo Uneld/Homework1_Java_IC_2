@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd6858c5-ad7a-4daa-bd57-44958eebcf4d" name="Changes" comment="Added IOView and its other methods, refactoring old function">
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/WrongCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/WrongInputStringIdWeight.java" afterDir="false" />
+    <list default="true" id="dd6858c5-ad7a-4daa-bd57-44958eebcf4d" name="Changes" comment="Added method changes weight toys">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WonToys/list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/WonToys/list.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/ToyTypePresentInShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/ToyTypePresentInShop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/WrongInputStringToy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/WrongInputStringToy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/GeneratorPrizeToyListInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/GeneratorPrizeToyListInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interfaces/ToyShopInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/ToyShopInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Program/ToyRaffle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program/ToyRaffle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Program/ToyShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program/ToyShop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Program/ToyShopFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program/ToyShopFileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Program/ToyShopIOView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program/ToyShopIOView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Program/ToyShopWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program/ToyShopWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ToyData/Toy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToyData/Toy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,10 +49,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/Learning GB/HomeWork/JAVA Исключения/Task to complete/Homework_J_EXC_S3"
+    "last_opened_file_path": "D:/Learning GB/HomeWork/Промежуточная контрольная работа по блоку специализация/Homework1_Java_IC_2/WonToys"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Learning GB\HomeWork\Промежуточная контрольная работа по блоку специализация\Homework1_Java_IC_2\WonToys" />
+    </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="Interfaces" />
       <recent name="" />
@@ -114,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694943288141</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added method changes weight toys">
+      <created>1694965595548</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1694965595548</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -132,6 +143,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Make main program logic" />
     <MESSAGE value="Added IOView and its other methods, refactoring old function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added IOView and its other methods, refactoring old function" />
+    <MESSAGE value="Added method changes weight toys" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added method changes weight toys" />
   </component>
 </project>

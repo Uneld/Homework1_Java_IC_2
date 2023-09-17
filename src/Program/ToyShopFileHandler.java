@@ -15,6 +15,13 @@ public class ToyShopFileHandler implements ToyShopFileHandlerInterface {
     private final String folderName;
     private final File file;
     private final File folder;
+
+    /**
+     * Конструктор класса ToyShopFileHandler.
+     *
+     * @param fileName   имя файла
+     * @param folderName имя папки
+     */
     public ToyShopFileHandler(String fileName, String folderName) {
         this.fileName = fileName;
         this.folderName = folderName;
@@ -26,7 +33,7 @@ public class ToyShopFileHandler implements ToyShopFileHandlerInterface {
 
     /**
      * Метод записывает переданные данные в файл
-     * Если при записи произошла ошибка, то выбрасывает исключение ErrorWriteFileException.
+     * Если при записи произошла ошибка, то выбрасывает исключение {@link ErrorWriteFileException}.
      *
      * @param toy - данные игрушки для записи в файл
      * @throws ErrorWriteFileException если произошла ошибка записи в файл
@@ -44,8 +51,11 @@ public class ToyShopFileHandler implements ToyShopFileHandlerInterface {
         }
     }
 
-    private void deleteExistFile(){
-        if(file.isFile()){
+    /**
+     * Метод удаляет существующий файл с таким же именем, если он существует.
+     */
+    private void deleteExistFile() {
+        if (file.isFile()) {
             file.delete();
         }
     }
