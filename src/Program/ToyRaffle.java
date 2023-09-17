@@ -1,3 +1,5 @@
+package Program;
+
 import Interfaces.GeneratorPrizeToyListInterface;
 import ToyData.Toy;
 

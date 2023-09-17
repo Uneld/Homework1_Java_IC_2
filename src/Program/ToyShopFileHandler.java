@@ -1,3 +1,5 @@
+package Program;
+
 import Exceptions.ErrorWriteFileException;
 import Interfaces.ToyShopFileHandlerInterface;
 import ToyData.Toy;
@@ -29,6 +31,7 @@ public class ToyShopFileHandler implements ToyShopFileHandlerInterface {
      * @param toy - данные игрушки для записи в файл
      * @throws ErrorWriteFileException если произошла ошибка записи в файл
      */
+    @Override
     public void writeToFile(Toy toy) throws ErrorWriteFileException {
         if (!folder.exists()) {
             folder.mkdirs();
