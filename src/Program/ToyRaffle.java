@@ -6,7 +6,7 @@ import ToyData.Toy;
 import java.util.*;
 
 public class ToyRaffle implements GeneratorPrizeToyListInterface {
-    private static final int MAX_PERCENT_CHANCE = 100;
+    static final int MAX_PERCENT_CHANCE = 100;
     private final Random random;
 
     public ToyRaffle() {

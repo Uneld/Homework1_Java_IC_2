@@ -38,20 +38,11 @@ public class ToyShop implements ToyShopInterface {
 
     @Override
     public void put(String input) throws WrongInputStringToy, ToyTypePresentInShop {
-        String[] toyFieldArray = input.strip().split(" ");
-        if (toyFieldArray.length != 3) {
-            throw new WrongInputStringToy("Не верно введены параметры игрушки.", input);
-        }
+        Toy newToyType = parseInputString(input);
 
-        try {
-            ids[countAddedTypeToys] = Integer.parseInt(toyFieldArray[0]);
-            weights[countAddedTypeToys] = Integer.parseInt(toyFieldArray[1]);
-            names[countAddedTypeToys] = toyFieldArray[2];
-        } catch (NumberFormatException e){
-            throw new WrongInputStringToy("Не верно введены параметры игрушки.", input);
-        }
-
-        Toy newToyType = new Toy(ids[countAddedTypeToys], names[countAddedTypeToys], weights[countAddedTypeToys]);
+        ids[countAddedTypeToys] = newToyType.getId();
+        weights[countAddedTypeToys] = newToyType.getWeight();
+        names[countAddedTypeToys] = newToyType.getName();
 
         if (toyTypesQueue.contains(newToyType)) {
             throw new ToyTypePresentInShop("Такой тип игрушки уже присутствует в магазине", newToyType);
@@ -74,7 +65,7 @@ public class ToyShop implements ToyShopInterface {
 
 
     @Override
-    public void updateToyTypeWeight(int id, int weight) {
+    public void updateToyTypeWeight(int id, int weight) throws ToyTypeNoPresentInShop {
         for (Toy toy : toyTypesQueue) {
             if (toy.getId() == id) {
                 toy.setWeight(weight);
@@ -89,9 +80,31 @@ public class ToyShop implements ToyShopInterface {
         StringBuilder builder = new StringBuilder();
 
         for (int i = 0; i < countAddedTypeToys; i++) {
-            builder.append(names[i]).append(", шанс=").append(weights[i]).append("%\n");
+            builder.append(ids[i]).append(". ").append(names[i]).append(", шанс=").append(weights[i]).append("%\n");
         }
 
         return builder.toString();
+    }
+
+    private Toy parseInputString(String input) throws WrongInputStringToy {
+        int id, weight;
+        String[] toyFieldArray = input.strip().split(" ");
+
+        if (toyFieldArray.length != 3) {
+            throw new WrongInputStringToy("Не верно введены параметры игрушки.", input);
+        }
+
+        try {
+            id = Integer.parseInt(toyFieldArray[0]);
+            weight = Integer.parseInt(toyFieldArray[1]);
+        } catch (NumberFormatException e){
+            throw new WrongInputStringToy("Не верно введены параметры игрушки.", input);
+        }
+
+        if(weight > ToyRaffle.MAX_PERCENT_CHANCE || weight < 0 || id < 0){
+            throw new WrongInputStringToy("Не верно введены параметры игрушки.", input);
+        }
+
+        return new Toy(id, toyFieldArray[2], weight);
     }
 }

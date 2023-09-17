@@ -1,7 +1,7 @@
 package Exceptions;
 
 public class WrongInputStringToy extends IllegalArgumentException {
-    String inputString;
+    private final String inputString;
 
     public WrongInputStringToy(String s, String inputString) {
         super(s);

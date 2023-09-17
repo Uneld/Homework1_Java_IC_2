@@ -3,7 +3,7 @@ package Exceptions;
 import ToyData.Toy;
 
 public class ToyTypePresentInShop extends Exception{
-    Toy toy;
+    private final Toy toy;
 
     public ToyTypePresentInShop(String message, Toy toy) {
         super(message);
